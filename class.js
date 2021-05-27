@@ -1,9 +1,9 @@
 class Mkulima{
-    constructor(farms,vendors,products,orders){
+    constructor(farms,products,orders){
         this.farms=[];
         this.products = [];
         this.orders= [];
-        this.vendors
+       
     
 
     }
@@ -16,17 +16,20 @@ class Mkulima{
             address: address,
 
         }
-   this.farms.push(farm)
+        this.farms.push(farm)
     }
-removeFarm(FarmId){
-let farm = this.getFarm(FarmId);
-let index= this.farms.indexOf(farm);
-this.farms.splice(index,1);
+removeFarm(farmId){
+//     this.farm.shift(this.farmId);
+// return this.farm
+let removeId=this.getFarm(farmId)
+let indexId=this.farms.indexOf(removeId)
+return this.farms.splice(indexId,1)
+
 }
 updateFarm(farmId,name,farmer,phoneNumber,address){
 
 var farm ={
-FarmId:FarmId,
+farmId:farmId,
 name:name,
 farmer: farmer,
 phoneNumber:phoneNumber,
@@ -36,19 +39,19 @@ address:address,
 this.farms.push(farm);
 
 }
-    getfarm(FarmId){
+    getFarm(farmId){
         for (var i = 0;i<this.farms.length;i++){
             let farm= this.farms[i];
-            if(this.farms.farmId===FarmId){
+            if(farm.farmId==farmId){
                 return farm;
             }
         }
     }
    
    
-   addProduct(addProductId,name,price){
+   addProduct(productId,name,price){
        var product={
-           ProductId:ProductId,
+           productId:productId,
            name:name,
            price:price,
        }
@@ -74,8 +77,16 @@ calculateOrderCost(productId,quantity){
 }
 }
 let mkulima = new Mkulima("Bora bora farm","Passion","Mary");
-console.log(mkulima.addFarm(65888099,"Babra ","Andrew",90989888,"Magadi"))
+console.log(mkulima.addFarm(65888099,"Babra ","Andrew",90989888,"Magadi road"));
 console.log(mkulima.farms);
-console.log(mkulima.calculateOrderCost("seeds",1000));
-console.log(mkulima.removeFarm(90989888));
-console.log(mkulima.printProducts);
+console.log(mkulima.getFarm(65888099));
+console.log(mkulima.removeFarm(65888099));
+console.log(mkulima.addFarm(1122234,"Jeaninne ","Jack",2547645333,"Kilimani"));
+console.log(mkulima.farms);
+console.log(mkulima.getFarm(65888099));
+console.log(mkulima.removeFarm(65888099));
+
+
+
+// console.log(mkulima.calculateOrderCost("seeds",1000));
+// console.log(mkulima.printProducts);
